@@ -11,8 +11,18 @@ class ProductManager {
             thumbnail,
             code,
             stock,
-            id,
+            id: this.#getMaxId + 1,
         };
         this.products.push(product);
     }
+
+    #getMaxId() {
+        let maxId = 0;
+        this.products.map((product) => {
+        if (product.id > maxId) maxId = product.id;
+                
+        });
+
+    return maxId;
+}
 }
