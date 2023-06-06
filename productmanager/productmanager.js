@@ -40,11 +40,11 @@ class ProductManager {
 
 const manager = new ProductManager();
 
-manager.addProduct("Producto 1", "Descripción 1", 16, "imagen1.jpg", "D43236", 4, 1);
-manager.addProduct("Producto 2", "Descripción 2", 44, "imagen2.jpg", "J54888", 1, 2);
-manager.addProduct("Producto 3", "Descripción 3", 18, "imagen3.jpg", "Z35653", 10, 3);
-manager.addProduct("Producto 4", "Descripción 4", 22, "imagen4.jpg", "B43978", 9, 4);
-manager.addProduct("Producto 5", "Descripción 5", 18, "imagen5.jpg", "O99000", 5, 5);
+manager.addProduct('Cómoda americana','Medidas:1,40m de ancho,79cm de alto y 45cm de profundidad.',12500, 'imagen1.jpg', 'D43236', 4, 1);
+manager.addProduct('Mesas de luz americanas', 'Medidas:50cm de ancho,60cm de alto y 42de profundidad.',9000, 'imagen2.jpg', 'J54888', 13, 2);
+manager.addProduct('Cómoda degrade', 'Medidas:76cm de ancho,94cm de alto y 40cm de profundidad.',12000, 'imagen3.jpg', 'Z35653', 10, 3);
+manager.addProduct('Espejo francés blanco', 'Medidas:1,00m de ancho,70cm de alto.' ,4000, 'imagen4.jpg', 'B43978', 9, 4);
+manager.addProduct('Juego de comedor americano', 'Medidas:1,30m de ancho, 90cm de alto.' , 30000, 'imagen5.jpg', 'O99000', 5, 5);
 
 console.log(manager.products);
 
