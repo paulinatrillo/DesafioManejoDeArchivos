@@ -11,7 +11,7 @@ class ProductManager {
             thumbnail,
             code,
             stock,
-            id: this.#getMaxId + 1,
+            id: this.#getMaxId() + 1,
         };
         this.products.push(product);
     }
@@ -25,4 +25,7 @@ class ProductManager {
 
     return maxId;
 }
+    getProduct(){
+        return this.products;
+    }
 }
