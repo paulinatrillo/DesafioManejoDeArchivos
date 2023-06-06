@@ -38,7 +38,15 @@ class ProductManager {
     }
 }
 
+const manager = new ProductManager();
 
+manager.addProduct("Producto 1", "Descripción 1", 16, "imagen1.jpg", "D43236", 4, 1);
+manager.addProduct("Producto 2", "Descripción 2", 44, "imagen2.jpg", "J54888", 1, 2);
+manager.addProduct("Producto 3", "Descripción 3", 18, "imagen3.jpg", "Z35653", 10, 3);
+manager.addProduct("Producto 4", "Descripción 4", 22, "imagen4.jpg", "B43978", 9, 4);
+manager.addProduct("Producto 5", "Descripción 5", 18, "imagen5.jpg", "O99000", 5, 5);
+
+console.log(manager.products);
 
 
 
