@@ -25,7 +25,7 @@ class ProductManager {
 
     return maxId;
 }
-    getProduct(){
+    getProducts(){
         return this.products;
     }
 }
