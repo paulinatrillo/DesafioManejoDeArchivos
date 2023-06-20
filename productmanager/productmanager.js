@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 class ProductManager {
     constructor(path) {
@@ -72,6 +72,17 @@ class ProductManager {
             console.log('Producto no encontrado.');
         }
     }
+
+    deleteProduct(id) {
+        const index = this.products.findIndex((product) => product.id === id);
+        if (index !== -1) {
+            this.products.splice(index, 1);
+            this.saveProducts();
+            console.log('Producto eliminado exitosamente.');
+        } else {
+            console.log('Producto no encontrado.');
+        }
+    }
 }
 
 const manager = new ProductManager('./productos.json');
@@ -82,4 +93,4 @@ manager.addProduct('Cómoda degrade', 'Medidas:76cm de ancho,94cm de alto y 40cm
 manager.addProduct('Espejo francés blanco', 'Medidas:1,00m de ancho,70cm de alto.', 4000, '../src/assets/img/espejo.jpg', 'B43978', 9, 4);
 manager.addProduct('Juego de comedor americano', 'Medidas:1,30m de ancho, 90cm de alto.', 30000, '../src/assets/img/juegoamericano.jpg', 'O99000', 5, 5);
 
-console.log(manager.products);
+export default ProductManager;
