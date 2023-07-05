@@ -1,0 +1,55 @@
+<h1>Real Time Products</h1>
+<ul id="productList">
+  {{#each products}}
+  <li>
+    <strong>Title:</strong> {{title}}<br>
+    <strong>Description:</strong> {{description}}<br>
+    <strong>Price:</strong> {{price}}<br>
+    <strong>Thumbnail:</strong> {{thumbnail}}<br>
+    <strong>Code:</strong> {{code}}<br>
+    <strong>Stock:</strong> {{stock}}<br>
+    <strong>ID:</strong> {{id}}<br>
+    <button class="deleteButton" data-id="{{id}}">Eliminar</button>
+  </li>
+  {{/each}}
+</ul>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  
+  const deleteButtons = document.getElementsByClassName('deleteButton');
+  Array.from(deleteButtons).forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const productId = event.target.dataset.id;
+      socket.emit('deleteProduct', productId);
+    });
+  });
+
+  
+  socket.on('productAdded', (product) => {
+    const productList = document.getElementById('productList');
+    const item = document.createElement('li');
+    item.innerHTML = `
+      <strong>Title:</strong> ${product.title}<br>
+      <strong>Description:</strong> ${product.description}<br>
+      <strong>Price:</strong> ${product.price}<br>
+      <strong>Thumbnail:</strong> ${product.thumbnail}<br>
+      <strong>Code:</strong> ${product.code}<br>
+      <strong>Stock:</strong> ${product.stock}<br>
+      <strong>ID:</strong> ${product.id}<br>
+      <button class="deleteButton" data-id="${product.id}">Eliminar</button>
+    `;
+    productList.appendChild(item);
+  });
+
+
+  socket.on('productRemoved', (productId) => {
+    const productList = document.getElementById('productList');
+    const item = document.querySelector(`li[data-id="${productId}"]`);
+    if (item) {
+      productList.removeChild(item);
+    }
+  });
+</script>
