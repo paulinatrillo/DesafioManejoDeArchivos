@@ -6,3 +6,5 @@ const userSchema = new mongoose.Schema({
     admin: {type: Boolean, default: false, default: false},
     age: { type: Number, required: true}
 });
+
+export const UserModel = mongoose.model('users', userSchema);
